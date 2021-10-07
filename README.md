@@ -16,4 +16,4 @@ score and time, by ten seconds!
 
 ## Website
 
-![Quiz-site click to answer some Questions](https://wizeeee.github.io/JavaScriptQuiz/)
+[Quiz-site click to answer some Questions](https://wizeeee.github.io/JavaScriptQuiz/)
