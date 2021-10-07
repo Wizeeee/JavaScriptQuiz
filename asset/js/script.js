@@ -74,3 +74,189 @@ Start and end timer
     timeLeft -= 1;
   }, 1000);
 };
+
+var nextQuestions = function () {
+  //event listener for answer buttons
+  answerEl.addEventListener("click", function () {
+    //iterates through hard coded questions/answers and displays them in order
+    for (let i = presentQIndex + 1; i < questions.length; i++) {
+      var quiz = document.querySelector("#quiz");
+      quiz.textContent = questions[i].question;
+      var btn1 = document.querySelector("#btn-1");
+      btn1.textContent = questions[i].answers[0].text;
+      var btn2 = document.querySelector("#btn-2");
+      btn2.textContent = questions[i].answers[1].text;
+      var btn3 = document.querySelector("#btn-3");
+      btn3.textContent = questions[i].answers[2].text;
+      var btn4 = document.querySelector("#btn-4");
+      btn4.textContent = questions[i].answers[3].text;
+      //used to check answers loaded in for loop in nextquestion()
+      correctAnswer2();
+      presentQIndex++;
+
+      return;
+    }
+  });
+};
+
+/*--------------------------------------------------------------------------
+Compares user answer to hard coded answer and returns correct/incorrect etc.
+--------------------------------------------------------------------------*/
+var correctAnswer1 = function () {
+  var answer1 = questions[0].answers[0].correct;
+  var btn1 = document.querySelector("#btn-1");
+  btn1.onclick = function () {
+    let clickedBtn1 = true;
+    if (clickedBtn1 === true && answer1 === true) {
+      //if answer correct run displayCorrect()
+      displayCorrect();
+      answerCounter++;
+    } else {
+      //else run displayIncorrect()
+      displayIncorrect();
+      timeLeft -= 10;
+      answerCounter++;
+    }
+  };
+  //if second choice is picked
+  var answer2 = questions[0].answers[1].correct;
+  var btn2 = document.querySelector("#btn-2");
+  btn2.onclick = function () {
+    let clickedBtn2 = true;
+    if (clickedBtn2 === true && answer2 === true) {
+      //if answer correct run displayCorrect()
+      displayCorrect();
+      answerCounter++;
+    } else {
+      //else run displayIncorrect()
+      displayIncorrect();
+      timeLeft -= 10;
+      answerCounter++;
+    }
+  };
+  //if thirs choice is picked
+  var answer3 = questions[0].answers[2].correct;
+  var btn3 = document.querySelector("#btn-3");
+  btn3.onclick = function () {
+    let clickedBtn3 = true;
+    if (clickedBtn3 === true && answer3 === true) {
+      //if answer correct run displayCorrect()
+      displayCorrect();
+      answerCounter++;
+    } else {
+      //else run displayIncorrect()
+      displayIncorrect();
+      timeLeft -= 10;
+      answerCounter++;
+    }
+  };
+  //if fourth choice is picked
+  var answer4 = questions[0].answers[3].correct;
+  var btn4 = document.querySelector("#btn-4");
+  btn4.onclick = function () {
+    let clickedBtn4 = true;
+    if (clickedBtn4 === true && answer4 === true) {
+      //if answer correct run displayCorrect()
+      displayCorrect();
+      answerCounter++;
+    } else {
+      //else run displayIncorrect()
+      displayIncorrect();
+      timeLeft -= 10;
+      answerCounter++;
+    }
+  };
+};
+
+//answerCounter will end question loop went number = to questions.length
+let answerCounter = 0;
+//if first choice is picked
+var correctAnswer2 = function () {
+  var answer1 = questions[presentQIndex + 1].answers[0].correct;
+  var btn1 = document.querySelector("#btn-1");
+  btn1.onclick = function () {
+    let clickedBtn1 = true;
+    if (clickedBtn1 === true && answer1 === true) {
+      //if answer correct run displayCorrect()
+      displayCorrect();
+      answerCounter++;
+    } else {
+      //else run displayIncorrect()
+      displayIncorrect();
+      timeLeft -= 10;
+      answerCounter++;
+    }
+  };
+  //if second choice is picked
+  var answer2 = questions[presentQIndex + 1].answers[1].correct;
+  var btn2 = document.querySelector("#btn-2");
+  btn2.onclick = function () {
+    let clickedBtn2 = true;
+    if (clickedBtn2 === true && answer2 === true) {
+      //if answer correct run displayCorrect()
+      displayCorrect();
+      answerCounter++;
+    } else {
+      //else run displayIncorrect()
+      displayIncorrect();
+      timeLeft -= 10;
+      answerCounter++;
+    }
+  };
+  //if thirs choice is picked
+  var answer3 = questions[presentQIndex + 1].answers[2].correct;
+  var btn3 = document.querySelector("#btn-3");
+  btn3.onclick = function () {
+    let clickedBtn3 = true;
+    if (clickedBtn3 === true && answer3 === true) {
+      //if answer correct run displayCorrect()
+      displayCorrect();
+      answerCounter++;
+    } else {
+      //else run displayIncorrect()
+      displayIncorrect();
+      timeLeft -= 10;
+      answerCounter++;
+    }
+  };
+  //if fourth choice is picked
+  var answer4 = questions[presentQIndex + 1].answers[3].correct;
+  var btn4 = document.querySelector("#btn-4");
+  btn4.onclick = function () {
+    let clickedBtn4 = true;
+    if (clickedBtn4 === true && answer4 === true) {
+      //if answer correct run displayCorrect()
+      displayCorrect();
+      answerCounter++;
+    } else {
+      //else run displayIncorrect()
+      displayIncorrect();
+      timeLeft -= 10;
+      answerCounter++;
+    }
+  };
+};
+
+/*--------------------------------------
+Display Correct/Incorrect on .75s timeout
+---------------------------------------*/
+var displayCorrect = function () {
+  var correctText = document.createElement("h2");
+  correctText.id = "correct";
+  correctText.className = "correct-wrong";
+  correctText.textContent = "Correct!";
+  correctWrong.appendChild(correctText);
+  setTimeout(function () {
+    correctText.classList.add("hidden");
+  }, 500);
+};
+var displayIncorrect = function () {
+  var incorrectText = document.createElement("h2");
+  incorrectText.id = "incorrect";
+  incorrectText.className = "correct-wrong";
+  incorrectText.textContent = "Wrong!";
+  correctWrong.appendChild(incorrectText);
+  setTimeout(function () {
+    incorrectText.classList.add("hidden");
+  }, 500);
+};
