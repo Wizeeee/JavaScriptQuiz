@@ -260,3 +260,138 @@ var displayIncorrect = function () {
     incorrectText.classList.add("hidden");
   }, 500);
 };
+/*-------------------------
+Function that ends the Quiz
+-------------------------*/
+var endQuiz = function () {
+  var quiz = document.querySelector("#quiz");
+  var buttonDiv = document.querySelector("#button-div");
+  questionEl.removeChild(quiz);
+  var btn1 = document.querySelector("#btn-1");
+  buttonDiv.removeChild(btn1);
+  var btn2 = document.querySelector("#btn-2");
+  buttonDiv.removeChild(btn2);
+  var btn3 = document.querySelector("#btn-3");
+  buttonDiv.removeChild(btn3);
+  var btn4 = document.querySelector("#btn-4");
+  buttonDiv.removeChild(btn4);
+
+  //save final score
+  var finalScore = timeRemaining.innerHTML;
+  //------CREATE SUBMIT SCORE SCREEN-------------
+  var lastPageDiv = document.createElement("div");
+  submitEl.appendChild(lastPageDiv);
+  //create first line of text
+  var allDone = document.createElement("h1");
+  allDone.textContent = "All done!";
+  allDone.className = "title";
+  lastPageDiv.appendChild(allDone);
+  //create second line of text (score announcement)
+  var report = document.createElement("h3");
+  report.textContent = "Your final score is " + (finalScore - 1);
+  report.className = "last-page-text";
+  lastPageDiv.appendChild(report);
+  //create div (submit container)
+  var entryDiv = document.createElement("div");
+  entryDiv.className = "submit-container";
+  submitEl.appendChild(entryDiv);
+  //create text "Enter initials"
+  var enterInitials = document.createElement("h3");
+  enterInitials.textContent = "Enter initials";
+  enterInitials.className = "last-page-text";
+  entryDiv.appendChild(enterInitials);
+  //create text input area
+  var textArea = document.createElement("input");
+  textArea.id = "text-area";
+  textArea.className = "text-area";
+  entryDiv.appendChild(textArea);
+  //create submit score button
+  var buttonAnchor = document.createElement("a");
+
+  entryDiv.appendChild(buttonAnchor);
+  var button = document.createElement("input");
+  button.type = "button";
+  button.id = "submit";
+  button.value = "Submit";
+  button.className = "btn submit-btn";
+  buttonAnchor.appendChild(button);
+  //---------SUBMIT BUTTON FUNCTION----------
+  button.addEventListener("click", function () {
+    if (textArea.value === "") {
+      //doesnt allow no user initials
+      alert("Your initials must be entered!");
+    } else {
+      //saves score to local storage
+      localStorage.setItem(textArea.value, finalScore);
+      buttonAnchor.href = "./asset/2nd.html";
+    }
+  });
+};
+
+/*----------------------------
+  Event listener starts the quiz
+  ----------------------------*/
+startQuizBtn.addEventListener("click", beginQuiz);
+
+/*--------------------------------------------
+  Hard coded questions and answers used for quiz
+  --------------------------------------------*/
+var questions = [
+  {
+    question: "The Java compiler generates________.",
+    answers: [
+      { text: "1. Source code", correct: false },
+      { text: "2. Executable file", correct: false },
+      { text: "3. Image file", correct: false },
+      { text: "4. Bytecode", correct: true },
+    ],
+  },
+  {
+    question: "Which of the following are not Java keywords?_______.",
+    answers: [
+      { text: "1. double", correct: false },
+      { text: "2. then", correct: true },
+      { text: "3. switch", correct: false },
+      { text: "4. instanceof", correct: false },
+    ],
+  },
+  {
+    question:
+      "The condition in an if / else statement is enclosed with________.",
+    answers: [
+      { text: "1. quotes", correct: false },
+      { text: "2. curly brackets", correct: false },
+      { text: "3. parenthesis", correct: true },
+      { text: "4. square brackets", correct: false },
+    ],
+  },
+  {
+    question: "Arrays in JavaScript can be used to store________.",
+    answers: [
+      { text: "1. numbers & strings", correct: false },
+      { text: "2. other arrays", correct: false },
+      { text: "3. booleans", correct: false },
+      { text: "4. all of the above", correct: true },
+    ],
+  },
+  {
+    question:
+      "String values must be enclosed within______ when being assigned to variables",
+    answers: [
+      { text: "1. commas", correct: false },
+      { text: "2. curly brackets", correct: false },
+      { text: "3. quotes", correct: true },
+      { text: "4. parenthesis", correct: false },
+    ],
+  },
+  {
+    question:
+      "A very useful tool used in during development and debugging for printing content to the debugger is:",
+    answers: [
+      { text: "1. JavaScript", correct: false },
+      { text: "2. terminal/bash", correct: false },
+      { text: "3. for loops", correct: false },
+      { text: "4. console.log", correct: true },
+    ],
+  },
+];
