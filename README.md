@@ -12,6 +12,8 @@ score and time, by ten seconds!
 
 ## Screenshot
 
-![alt text](./asset/images/screenshotweb2)
+![Screnshot](./asset/images/screnshotweb2.png)
 
-##
+## Website
+
+![Quiz-site click to answer some Questions](https://wizeeee.github.io/JavaScriptQuiz/)
