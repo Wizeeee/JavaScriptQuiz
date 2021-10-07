@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Quiz HighScore</title>
+  </head>
+  <!--parent element for all content-->
+  <body class="score-container">
+    <section id="parent-element">
+      <h1 class="title">HighScores</h1>
+      <!--High score display-->
+      <div class="high-score-parent">
+        <h2 id="high-score" class="high-score"></h2>
+      </div>
+      <!--buttons parent element-->
+      <div class="score-btn">
+        <!--button that serves as anchor to index.html-->
+        <a href="../index.html"
+          ><button class="btn go-back-btn">Go back</button></a
+        >
+        <!--button that clear localStorage(highscores)-->
+        <button id="clear-all" class="btn clear-all-btn">
+          Clear HighScores
+        </button>
+      </div>
+      <!--link to score.js-->
+      <script src="./js/2nd.js"></script>
+    </section>
+  </body>
+</html>
