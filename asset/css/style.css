@@ -1,0 +1,223 @@
+/*------------
+GLOBAL STYLING
+------------*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*fit all content on screen*/
+html,
+body,
+.wrapper {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/*global font and background color*/
+body {
+  background-color: #f9fbfd;
+  font-family: sans-serif;
+}
+
+/*-----------------------------------------
+STYLING AND POSITIONING FOR HEADER ELEMENTS
+-----------------------------------------*/
+/*parent element used to position on page*/
+header {
+  margin-top: 3px;
+  display: flex;
+  justify-content: space-between;
+}
+/*font styling for "view high score"*/
+h2 {
+  margin-left: 20px;
+  color: rgb(150, 80, 220);
+  font-size: 18px;
+  font-weight: normal;
+}
+/*remove anchor default styling*/
+a {
+  text-decoration: none;
+}
+
+/*temporary styling for top right timer*/
+h3 {
+  margin-right: 20px;
+  font-weight: normal;
+}
+
+p {
+  text-align: center;
+}
+/*---------------------------------------
+STYLING AND POSITIONING FOR PARENT ELEMENTS
+---------------------------------------*/
+/*parent element used to center on page*/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*parent element for main content*/
+.main-container {
+  width: 100%;
+  margin-left: 50%;
+}
+
+/*parent element for submit score content*/
+.submit-container {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*parent element for highscore content*/
+.score-container {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/*parent element for answer button*/
+.answer-style {
+  width: 200px;
+}
+
+/*parent element for highscore area*/
+.high-score-parent {
+  background-color: rgba(150, 80, 220, 0.25);
+}
+/*----------------------------------------
+STYLING AND POSITIONING FOR BUTTONS STARTS
+----------------------------------------*/
+/*btn styling to be used throughout quiz*/
+.btn {
+  margin-top: 16px;
+  border-radius: 8px;
+  height: 33px;
+  background-color: darkblue;
+  color: white;
+  font-size: 20px;
+  text-align: left;
+  cursor: pointer;
+}
+/*all button hover*/
+.btn:hover {
+  background-color: rgb(150, 80, 220);
+}
+
+/*start buttons styling and positioning*/
+.start-btn {
+  width: 130px;
+  text-align: center;
+}
+
+/*answer buttons styling and positioning*/
+.answer-btn {
+  margin: 20px 0;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+/*submit button styling and positioning*/
+.submit-btn {
+  margin-bottom: 15px;
+  width: 150px;
+  text-align: center;
+}
+
+/*highscore page -button- parent element*/
+.score-btn {
+  height: 35px;
+  display: flex;
+}
+
+/*clear high score button styling and positioning*/
+.clear-all-btn {
+  margin-top: 0;
+  height: 35px;
+  text-align: center;
+  justify-content: center;
+}
+
+/*load new quiz button*/
+.go-back-btn {
+  margin-top: 0;
+  margin-right: 10px;
+  height: 35px;
+  width: 150px;
+  text-align: center;
+}
+/*-------------------------------------
+STYLING AND POSITIONING FOR BUTTONS ENDS
+--------------------------------------*/
+
+/*---------------------------
+TEXT AND OTHER STYLING STARTS
+---------------------------*/
+/*title text - question text - high score text*/
+.title {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/*space between question and answers*/
+.question-style {
+  margin-top: 50px;
+  width: 75%;
+}
+
+/*styling for Correct/Wrong Text*/
+.correct-wrong {
+  border-top: 3px solid grey;
+  padding-top: 10px;
+  width: 800px;
+  color: grey;
+  font-size: 25px;
+  font-style: italic;
+}
+
+/*submit page text height*/
+.last-page-text {
+  margin-right: 0px;
+  font-size: 21px;
+}
+
+/*submit page input field*/
+.text-area {
+  height: 27px;
+  width: 300px;
+  font-size: 20px;
+  justify-content: center;
+}
+
+/*highscore display*/
+.high-score h2 {
+  margin-left: -20px;
+  color: black;
+  font-size: 20px;
+}
+
+/*-------------
+SPECIAL EFFECTS
+-------------*/
+/*hide default values for elements - to be turned on and off dynamically*/
+.hidden {
+  display: none;
+}
+
+/*media query for smaller desktop screen and smaller*/
+@media screen and (max-width: 900px) {
+  /*header nav button re-positioning*/
+  /*parent element for submit score content*/
+  .submit-container {
+    flex-wrap: wrap;
+  }
+}
